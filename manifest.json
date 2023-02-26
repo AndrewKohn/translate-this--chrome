@@ -1,0 +1,32 @@
+{
+  "name": "translateThis",
+  "description": "Translate selected text to a desired language.",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [""],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "actions": {
+    "default_icon": {
+      "16": "/src/icons/icon16.png",
+      "48": "/src/icons/icon48.png",
+      "128": "/src/icons/icon128.png"
+    },
+    "default_title": "translateThis",
+    "default_popup": "popup.html"
+  }
+}
